@@ -15,8 +15,8 @@ app.set('view engine','ejs')
 
 
 app.get('/project',async (req,res)=>{
-    var data = user.find({})
-    res.render("view/index",{project:data})
+    var data = await User.find({})
+    res.render("index",{project:data})
 })
 
 
