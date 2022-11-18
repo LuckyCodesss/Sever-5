@@ -29,7 +29,7 @@ app.post('/users',async (req,res)=>{
         project: req.body.project
     }
     console.log("okay");
-    res.json(newUser);
+    res.send(newUser);
 })
 app.post('/projects',async (req,res)=>{
     const newProject = {
@@ -39,7 +39,7 @@ app.post('/projects',async (req,res)=>{
         vote: req.body.vote
     }
     console.log("okay")
-    res.json(newProject);
+    res.send(newProject);
 })
 app.post('/tools',async (req,res)=>{
     const newTool = {
@@ -49,7 +49,7 @@ app.post('/tools',async (req,res)=>{
         vote: req.body.vote
     }
     console.log("okay")
-    res.json(newTool);
+    res.send(newTool);
 })
 app.post('/communitys',async (req,res)=>{
     const newCommunity = {
@@ -59,7 +59,7 @@ app.post('/communitys',async (req,res)=>{
         vote: req.body.vote
     }
     console.log("okay")
-    res.json(newCommunity);
+    res.send(newCommunity);
 })
 
 
