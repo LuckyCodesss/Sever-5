@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
+//post data
 app.post('/users',async (req,res)=>{
     const newUser = {
         firstName: req.body.firstName,
@@ -27,44 +28,38 @@ app.post('/users',async (req,res)=>{
         bio: req.body.bio,
         project: req.body.project
     }
-    console.log("okay")
-    res.status(201).send('Create user')
+    console.log("okay");
+    res.json(newUser);
 })
-app.post('/project',async (req,res)=>{
+app.post('/projects',async (req,res)=>{
     const newProject = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        email: req.body.email,
-        bio: req.body.bio,
-        project: req.body.project
+        projectName: req.body.projectName,
+        description: req.body.description,
+        picTool: req.body.picTool,
+        vote: req.body.vote
     }
     console.log("okay")
-    res.status(201).send('Create project')
+    res.json(newProject);
 })
 app.post('/tools',async (req,res)=>{
     const newTool = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        email: req.body.email,
-        bio: req.body.bio,
-        project: req.body.project
+        toolName: req.body.toolName,
+        description: req.body.description,
+        picTool: req.body.picTool,
+        vote: req.body.vote
     }
     console.log("okay")
-    res.status(201).send('Create tool')
+    res.json(newTool);
 })
 app.post('/communitys',async (req,res)=>{
     const newCommunity = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        email: req.body.email,
-        bio: req.body.bio,
-        project: req.body.project
+        pic: req.body.pic,
+        head: req.body.head,
+        description: req.body.description,
+        vote: req.body.vote
     }
     console.log("okay")
-    res.status(201).send('Create community')
+    res.json(newCommunity);
 })
 
 
@@ -89,7 +84,7 @@ app.get('/communitys',async (req,res) => {
 
 
 
-app.listen(9999);
+app.listen(8888);
 app.use((req, res) => {
     res.status(404).send({ url: `${req.originalUrl} not found` })
 })
