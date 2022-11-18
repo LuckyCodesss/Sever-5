@@ -20,17 +20,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 //post data
 app.post('/users',async (req,res)=>{
-    const newUser = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        email: req.body.email,
-        bio: req.body.bio,
-        project: req.body.project
-    }
-    console.log("okay");
-    res.send(newUser);
+    var newUser = new User(req.body)
+    newUser.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
 })
+
 app.post('/projects',async (req,res)=>{
     const newProject = {
         projectName: req.body.projectName,
@@ -38,9 +37,9 @@ app.post('/projects',async (req,res)=>{
         picTool: req.body.picTool,
         vote: req.body.vote
     }
-    console.log("okay")
     res.send(newProject);
 })
+
 app.post('/tools',async (req,res)=>{
     const newTool = {
         toolName: req.body.toolName,
@@ -48,9 +47,9 @@ app.post('/tools',async (req,res)=>{
         picTool: req.body.picTool,
         vote: req.body.vote
     }
-    console.log("okay")
     res.send(newTool);
 })
+
 app.post('/communitys',async (req,res)=>{
     const newCommunity = {
         pic: req.body.pic,
@@ -58,7 +57,6 @@ app.post('/communitys',async (req,res)=>{
         description: req.body.description,
         vote: req.body.vote
     }
-    console.log("okay")
     res.send(newCommunity);
 })
 
@@ -69,14 +67,17 @@ app.get('/users',async (req,res) => {
     var data = await User.find({})
     res.render("index",{project:data})
 })
+
 app.get('/projects',async (req,res) => {
     var data = await Project.find({})
     res.render("index",{project:data})
 })
+
 app.get('/tools',async (req,res) => {
     var data = await Tool.find({})
     res.render("index",{project:data})
 })
+
 app.get('/communitys',async (req,res) => {
     var data = await Community.find({})
     res.render("index",{project:data})
