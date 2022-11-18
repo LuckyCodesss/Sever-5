@@ -31,33 +31,36 @@ app.post('/users',async (req,res)=>{
 })
 
 app.post('/projects',async (req,res)=>{
-    const newProject = {
-        projectName: req.body.projectName,
-        description: req.body.description,
-        picTool: req.body.picTool,
-        vote: req.body.vote
-    }
-    res.send(newProject);
+    var newProject = new Project(req.body)
+    newProject.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
 })
 
 app.post('/tools',async (req,res)=>{
-    const newTool = {
-        toolName: req.body.toolName,
-        description: req.body.description,
-        picTool: req.body.picTool,
-        vote: req.body.vote
-    }
-    res.send(newTool);
+    var newTool = new Tool(req.body)
+    newTool.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
 })
 
 app.post('/communitys',async (req,res)=>{
-    const newCommunity = {
-        pic: req.body.pic,
-        head: req.body.head,
-        description: req.body.description,
-        vote: req.body.vote
-    }
-    res.send(newCommunity);
+    var newCommunity = new Community(req.body)
+    newCommunity.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
 })
 
 
