@@ -67,11 +67,11 @@ app.post('/communitys',async (req,res)=>{
 
 
 
-//get data all
+//get all data
 app.get('/users',async (req,res) => { 
     var data = await User.find({})
-    res.json(data);
-    //res.render("index",{project:data})
+    //res.json(data);
+    res.render("index",{project:data})
 })
 
 app.get('/projects',async (req,res) => {
