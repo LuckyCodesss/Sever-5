@@ -4,10 +4,16 @@ const projectSchema = new mongoose.Schema({
     projectName: {
         type: String,
     },
+    firstName: {
+        type: String,
+    },
+    lastName: {
+        type: String,
+    },
     description: {
         type: String,
     },
-    picTool: {
+    img: {
         type: String
     },
     vote: {

@@ -1,3 +1,4 @@
+//define varible
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
@@ -7,15 +8,16 @@ const Tool = require("./models/toolModel");
 const Community = require("./models/communityModel");
 const bodyParser = require('body-parser');
 
+//database
 mongoose.connect(
     'mongodb+srv://WebHouse:max2666z!@cluster0.a6krzpb.mongodb.net/server5?retryWrites=true&w=majority',
     { useNewUrlParser: true }
 )
 
+
 app.set('view engine','ejs')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
 
 
 //post data
@@ -41,6 +43,7 @@ app.post('/projects',async (req,res)=>{
     })
 })
 
+
 app.post('/tools',async (req,res)=>{
     var newTool = new Tool(req.body)
     newTool.save()
@@ -65,7 +68,7 @@ app.post('/communitys',async (req,res)=>{
 
 
 
-//get data
+//get data all
 app.get('/users',async (req,res) => { 
     var data = await User.find({})
     res.render("index",{project:data})
@@ -85,6 +88,11 @@ app.get('/communitys',async (req,res) => {
     var data = await Community.find({})
     res.render("index",{project:data})
 })
+
+
+
+//get single data 
+
 
 
 
