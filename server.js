@@ -43,7 +43,6 @@ app.post('/projects',async (req,res)=>{
     })
 })
 
-
 app.post('/tools',async (req,res)=>{
     var newTool = new Tool(req.body)
     newTool.save()
@@ -71,28 +70,58 @@ app.post('/communitys',async (req,res)=>{
 //get data all
 app.get('/users',async (req,res) => { 
     var data = await User.find({})
-    res.render("index",{project:data})
+    res.json(data);
+    //res.render("index",{project:data})
 })
 
 app.get('/projects',async (req,res) => {
     var data = await Project.find({})
-    res.render("index",{project:data})
+    res.json(data);
+    //res.render("index",{project:data})
 })
 
 app.get('/tools',async (req,res) => {
     var data = await Tool.find({})
-    res.render("index",{project:data})
+    res.json(data);
+    //res.render("index",{project:data})
 })
 
 app.get('/communitys',async (req,res) => {
     var data = await Community.find({})
-    res.render("index",{project:data})
+    res.json(data);
+    //res.render("index",{project:data})
 })
 
 
 
 //get single data 
+app.get('/users',async (req,res) => { 
+    var data = await User.findById(req.params.projectId, (err, project) => {
+        if (err) res.send(err);
+    })
+    res.json(data);
+})
 
+app.get('/projects',async (req,res) => {
+    var data = await Project.findById(req.params.projectId, (err, project) => {
+        if (err) res.send(err);
+    })
+    res.json(data);
+})
+
+app.get('/tools',async (req,res) => {
+    var data = await Tool.findById(req.params.projectId, (err, project) => {
+        if (err) res.send(err);
+    })
+    res.json(data);
+})
+
+app.get('/communitys',async (req,res) => {
+    var data = await Community.findById(req.params.projectId, (err, project) => {
+        if (err) res.send(err);
+    })
+    res.json(data);
+})
 
 
 
