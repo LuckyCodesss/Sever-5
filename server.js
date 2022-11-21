@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 //database
 mongoose.connect(
-    'mongodb+srv://WebHouse:max2666z!@cluster0.a6krzpb.mongodb.net/server5?retryWrites=true&w=majority',
+    'mongodb+srv://WebHouse:max2666z!@cluster0.a6krzpb.mongodb.net/server5',
     { useNewUrlParser: true }
 )
 
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 //post data
-app.post('/users',async (req,res)=>{
+app.post('/userx',async (req,res)=>{
     var newUser = new User(req.body)
     newUser.save()
     .then(item => {
@@ -32,7 +32,7 @@ app.post('/users',async (req,res)=>{
     })
 })
 
-app.post('/projects',async (req,res)=>{
+app.post('/projectx',async (req,res)=>{
     var newProject = new Project(req.body)
     newProject.save()
     .then(item => {
@@ -43,7 +43,7 @@ app.post('/projects',async (req,res)=>{
     })
 })
 
-app.post('/tools',async (req,res)=>{
+app.post('/toolx',async (req,res)=>{
     var newTool = new Tool(req.body)
     newTool.save()
     .then(item => {
@@ -54,7 +54,7 @@ app.post('/tools',async (req,res)=>{
     })
 })
 
-app.post('/communitys',async (req,res)=>{
+app.post('/communityx',async (req,res)=>{
     var newCommunity = new Community(req.body)
     newCommunity.save()
     .then(item => {
@@ -74,10 +74,9 @@ app.get('/users',async (req,res) => {
     res.render("index",{project:data})
 })
 
-app.get('/projects',async (req,res) => {
+app.get('/',async (req,res) => {
     var data = await Project.find({})
-    res.json(data);
-    //res.render("index",{project:data})
+    res.render("index",{tiwme:data})
 })
 
 app.get('/tools',async (req,res) => {
@@ -95,28 +94,28 @@ app.get('/communitys',async (req,res) => {
 
 
 //get single data 
-app.get('/users',async (req,res) => { 
+app.get('/user',async (req,res) => { 
     var data = await User.findById(req.params.projectId, (err, project) => {
         if (err) res.send(err);
     })
     res.json(data);
 })
 
-app.get('/projects',async (req,res) => {
+app.get('/project',async (req,res) => {
     var data = await Project.findById(req.params.projectId, (err, project) => {
         if (err) res.send(err);
     })
     res.json(data);
 })
 
-app.get('/tools',async (req,res) => {
+app.get('/tool',async (req,res) => {
     var data = await Tool.findById(req.params.projectId, (err, project) => {
         if (err) res.send(err);
     })
     res.json(data);
 })
 
-app.get('/communitys',async (req,res) => {
+app.get('/community',async (req,res) => {
     var data = await Community.findById(req.params.projectId, (err, project) => {
         if (err) res.send(err);
     })

@@ -65,13 +65,13 @@
         <!-- head -->
         <div class="flex flex-col mt-4 text-lg font-medium">
           <div class="mt-4">
-            <a href="#"> Project </a>
+            <a href=""> Project </a>
           </div>
           <div class="mt-4">
-            <a href="#"> Community </a>
+            <a href=""> Community </a>
           </div>
           <div class="mt-4">
-            <a href="#"> Tools </a>
+            <a href=""> Tools </a>
           </div>
         </div>
 
@@ -337,7 +337,7 @@
         </div>
       </div>
       <!-- Project -->
-      <% for (var i =0; i <tiwme.length ; i++ ) { %><% } %>
+      <% for (var i =0; i <tiwme.length ; i++ ) { %>
           <div>
             <div
               class="mr-36 mt-16 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
@@ -353,20 +353,12 @@
                   <div
                     class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
                   >
-                    <%= tiwme[i].project %>
+                    <%= tiwme[i].projectName %>
                   </div>
 
                   <p class="mt-2 text-slate-500">
                     <%= tiwme[i].description %>
                   </p>
-                  <div class="flex flex-row space-x-5 mt-8">
-                    <p class="rounded-full border-blue-300 ring-2 w-20 text-center">
-                      <%= tiwme[i].grade %>
-                    </p>
-                    <p class="rounded-full border-blue-300 ring-2 w-20 text-center">
-                      <% tiwme[i].subject %>
-                    </p>
-                  </div>
                 </div>
                 <!-- votebutton -->
                 <div class="flex flex-col mt-24 mr-2">
@@ -378,21 +370,18 @@
                   </button>
                   <div class="flex flex-row space-x-2 mt-16 text-stone-600">
                     <p>by</p>
-                    <p id="firstname"><%= tiwme[i].firstname %></p>
-                    <p id="lastname"><%= tiwme[i].lastname %></p>
+                    <p id="firstname"><%= tiwme[i].firstName %></p>
+                    <p id="lastname"><%= tiwme[i].lastName %></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <% } %>
-        <% %>
       <!-- websitename -->
       <div class="font-semibold text-4xl mr-auto ml-10 mt-4">
         <p>Tiwme</p>
       </div>
     </div>
-
-    <script src="filter.js"></script>
   </body>
 </html>
