@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //     })
 // })
 
-app.post('/projectx',async (req,res)=>{
+app.post('home/projectx',async (req,res)=>{
     var newProject = new Project(req.body)
     newProject.save()
     .then(item => {
