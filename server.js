@@ -74,7 +74,7 @@ app.post('/projectx',async (req,res)=>{
 //     res.render("index",{project:data})
 // })
 
-app.get('/',async (req,res) => {
+app.get('/home',async (req,res) => {
     var data = await Project.find({})
     res.render("index",{tiwme:data})
 })
