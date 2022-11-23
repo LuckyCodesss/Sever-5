@@ -337,7 +337,8 @@
         </div>
       </div>
       <!-- Project -->
-      <% for (var i =0; i <tiwme.length ; i++ ) { %>
+      <div class="flex flex-col">
+        <% for (var i =0; i <tiwme.length ; i++ ) { %>
           <div>
             <div
               class="mr-36 mt-16 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
@@ -345,7 +346,7 @@
               <div class="md:flex">
                 <div class="md:shrink-0">
                   <img
-                    class="h-48 w-full object-cover md:h-full md:w-48"
+                    class="h-48 w-full object-cover md:h-full md:w-48" 
                     src= <%= tiwme[i].img %>
                   />
                 </div>
@@ -361,23 +362,26 @@
                   </p>
                 </div>
                 <!-- votebutton -->
-                <div class="flex flex-col mt-24 mr-2">
-                  <button
-                    type="button"
-                    class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                  >
-                    Vote
-                  </button>
-                  <div class="flex flex-row space-x-2 mt-16 text-stone-600">
-                    <p>by</p>
-                    <p id="firstname"><%= tiwme[i].firstName %></p>
-                    <p id="lastname"><%= tiwme[i].lastName %></p>
+                <div class="flex justify-end">
+                  <div class="flex flex-col mt-24 mr-2">
+                    <button
+                      type="button"
+                      class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                    >
+                      Vote
+                    </button>
+                    <div class="flex flex-row space-x-2 mt-16 text-stone-600">
+                      <p>by</p>
+                      <p id="firstname"><%= tiwme[i].firstName %></p>
+                      <p id="lastname"><%= tiwme[i].lastName %></p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <% } %>
+      </div>
       <!-- websitename -->
       <div class="font-semibold text-4xl mr-auto ml-10 mt-4">
         <p>Tiwme</p>
