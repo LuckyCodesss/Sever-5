@@ -88,6 +88,11 @@ app.get('/communitypage',async (req,res) => {
     res.render("index",{project:data})
 })
 
+app.get('/home/read',async (req,res) => {
+    var data = await Project.find({})
+    res.render("read",{tiwme:data})
+})
+
 
 
 //get single data 
@@ -165,6 +170,16 @@ app.put('/community/update/:communityId',async (req,res) => {
 
 
 //delete data
+app.delete('/user/delete/:userId',async (req,res) => {
+    User.deleteOne({ _id: req.params.userId })
+    .then(item => {
+        res.send("data had been delete in database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to delete data in database")
+    })
+})
+
 app.delete('/project/delete/:projectId',async (req,res) => {
     Project.deleteOne({ _id: req.params.projectId })
     .then(item => {
@@ -176,7 +191,7 @@ app.delete('/project/delete/:projectId',async (req,res) => {
 })
 
 app.delete('/tool/delete/:toolId',async (req,res) => {
-    Project.deleteOne({ _id: req.params.toolId })
+    Tool.deleteOne({ _id: req.params.toolId })
     .then(item => {
         res.send("data had been delete in database")
     })
@@ -186,7 +201,7 @@ app.delete('/tool/delete/:toolId',async (req,res) => {
 })
 
 app.delete('/community/delete/:communityId',async (req,res) => {
-    Project.deleteOne({ _id: req.params.communityId })
+    Community.deleteOne({ _id: req.params.communityId })
     .then(item => {
         res.send("data had been delete in database")
     })
