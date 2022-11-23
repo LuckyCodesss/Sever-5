@@ -21,16 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 //post data
-// app.post('/userx',async (req,res)=>{
-//     var newUser = new User(req.body)
-//     newUser.save()
-//     .then(item => {
-//         res.send("item saved to database")
-//     })
-//     .catch(err => {
-//         res.status(400).send("unable to save to database")
-//     })
-// })
+app.post('/user/post',async (req,res)=>{
+    var newUser = new User(req.body)
+    newUser.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
+})
 
 app.post('/project/post',async (req,res)=>{
     var newProject = new Project(req.body)
@@ -68,10 +68,10 @@ app.post('/community/post',async (req,res)=>{
 
 
 //get all data
-// app.get('/users',async (req,res) => { 
-//     var data = await User.find({})
-//     res.render("index",{project:data})
-// })
+app.get('/userdata',async (req,res) => { 
+    var data = await User.find({})
+    res.render("index",{project:data})
+})
 
 app.get('/home',async (req,res) => {
     var data = await Project.find({})
@@ -122,6 +122,16 @@ app.get('/communitypage',async (req,res) => {
 
 
 //update data
+app.put('/user/update/:userId',async (req,res) => {
+    User.findOneAndUpdate({ _id: req.params.userId }, req.body, {new : true})
+    .then(item => {
+        res.send("data had been update to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to update data to database")
+    })
+})
+
 app.put('/project/update/:projectId',async (req,res) => {
     Project.findOneAndUpdate({ _id: req.params.projectId }, req.body, {new : true})
     .then(item => {
