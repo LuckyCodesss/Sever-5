@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //     })
 // })
 
-app.post('/home/projectx',async (req,res)=>{
+app.post('/home/post',async (req,res)=>{
     var newProject = new Project(req.body)
     newProject.save()
     .then(item => {
@@ -101,12 +101,12 @@ app.get('/home',async (req,res) => {
 //     res.json(data);
 // })
 
-app.get('/project',async (req,res) => {
-    var data = await Project.findById(req.params.projectId, (err, project) => {
-        if (err) res.send(err);
-    })
-    res.json(data);
-})
+// app.get('/project',async (req,res) => {
+//     var data = await Project.findById(req.params.projectId, (err, project) => {
+//         if (err) res.send(err);
+//     })
+//     res.json(data);
+// })
 
 // app.get('/tool',async (req,res) => {
 //     var data = await Tool.findById(req.params.projectId, (err, project) => {
@@ -121,6 +121,32 @@ app.get('/project',async (req,res) => {
 //     })
 //     res.json(data);
 // })
+
+
+
+//update data
+app.put('/home/:homeId',async (req,res) => {
+    Project.findOneAndUpdate({ _id: req.params.homeId }, req.body, {new : true})
+    .then(item => {
+        res.send("data had been update to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to update data to database")
+    })
+})
+
+
+
+//delete data
+app.delete('/home/:homeId',async (req,res) => {
+    Project.deleteOne({ _id: req.params.homeId })
+    .then(item => {
+        res.send("data had been delete in database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to delete data in database")
+    })
+})
 
 
 
