@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //     })
 // })
 
-app.post('/home/post',async (req,res)=>{
+app.post('/project/post',async (req,res)=>{
     var newProject = new Project(req.body)
     newProject.save()
     .then(item => {
@@ -43,34 +43,33 @@ app.post('/home/post',async (req,res)=>{
     })
 })
 
-// app.post('/toolx',async (req,res)=>{
-//     var newTool = new Tool(req.body)
-//     newTool.save()
-//     .then(item => {
-//         res.send("item saved to database")
-//     })
-//     .catch(err => {
-//         res.status(400).send("unable to save to database")
-//     })
-// })
+app.post('/tool/post',async (req,res)=>{
+    var newTool = new Tool(req.body)
+    newTool.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
+})
 
-// app.post('/communityx',async (req,res)=>{
-//     var newCommunity = new Community(req.body)
-//     newCommunity.save()
-//     .then(item => {
-//         res.send("item saved to database")
-//     })
-//     .catch(err => {
-//         res.status(400).send("unable to save to database")
-//     })
-// })
+app.post('/community/post',async (req,res)=>{
+    var newCommunity = new Community(req.body)
+    newCommunity.save()
+    .then(item => {
+        res.send("item saved to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
+    })
+})
 
 
 
 //get all data
 // app.get('/users',async (req,res) => { 
 //     var data = await User.find({})
-//     //res.json(data);
 //     res.render("index",{project:data})
 // })
 
@@ -79,17 +78,15 @@ app.get('/home',async (req,res) => {
     res.render("index",{tiwme:data})
 })
 
-// app.get('/tools',async (req,res) => {
-//     var data = await Tool.find({})
-//     res.json(data);
-//     //res.render("index",{project:data})
-// })
+app.get('/toolpage',async (req,res) => {
+    var data = await Tool.find({})
+    res.render("index",{project:data})
+})
 
-// app.get('/communitys',async (req,res) => {
-//     var data = await Community.find({})
-//     res.json(data);
-//     //res.render("index",{project:data})
-// })
+app.get('/communitypage',async (req,res) => {
+    var data = await Community.find({})
+    res.render("index",{project:data})
+})
 
 
 
@@ -125,8 +122,28 @@ app.get('/home',async (req,res) => {
 
 
 //update data
-app.put('/home/:homeId',async (req,res) => {
-    Project.findOneAndUpdate({ _id: req.params.homeId }, req.body, {new : true})
+app.put('/project/update/:projectId',async (req,res) => {
+    Project.findOneAndUpdate({ _id: req.params.projectId }, req.body, {new : true})
+    .then(item => {
+        res.send("data had been update to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to update data to database")
+    })
+})
+
+app.put('/tool/update/:toolId',async (req,res) => {
+    Tool.findOneAndUpdate({ _id: req.params.toolId }, req.body, {new : true})
+    .then(item => {
+        res.send("data had been update to database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to update data to database")
+    })
+})
+
+app.put('/community/update/:communityId',async (req,res) => {
+    Community.findOneAndUpdate({ _id: req.params.communityId }, req.body, {new : true})
     .then(item => {
         res.send("data had been update to database")
     })
@@ -138,8 +155,28 @@ app.put('/home/:homeId',async (req,res) => {
 
 
 //delete data
-app.delete('/home/:homeId',async (req,res) => {
-    Project.deleteOne({ _id: req.params.homeId })
+app.delete('/project/delete/:projectId',async (req,res) => {
+    Project.deleteOne({ _id: req.params.projectId })
+    .then(item => {
+        res.send("data had been delete in database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to delete data in database")
+    })
+})
+
+app.delete('/tool/delete/:toolId',async (req,res) => {
+    Project.deleteOne({ _id: req.params.toolId })
+    .then(item => {
+        res.send("data had been delete in database")
+    })
+    .catch(err => {
+        res.status(400).send("unable to delete data in database")
+    })
+})
+
+app.delete('/community/delete/:communityId',async (req,res) => {
+    Project.deleteOne({ _id: req.params.communityId })
     .then(item => {
         res.send("data had been delete in database")
     })

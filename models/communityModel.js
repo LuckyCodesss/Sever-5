@@ -4,7 +4,7 @@ const communitySchema = new mongoose.Schema({
     pic: {
         type: String
     },
-    head: {
+    title: {
         type: String
     },
     description: {

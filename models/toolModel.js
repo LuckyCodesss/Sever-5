@@ -7,12 +7,11 @@ const toolSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-    picTool: {
+    picIcon: {
         type: String
     },
     vote: {
         type: Number,
-        required: true
     }
 })
 
