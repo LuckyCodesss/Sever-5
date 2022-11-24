@@ -10,9 +10,79 @@
       href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
     />
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
-<body>
-    
-</body>
+  <body>
+    <div class="flex flex-row">
+      <!-- paper page -->
+      <button type="button" class="ml-4 mt-48 bg-neutral-800 w-12 h-12">
+        <i class="fas fa-angle-left" style="font-size: 48px; color: white"></i>
+      </button>
+      <img src="" class="w-8/12 h-screen ml-12" />
+      <button type="button" class="mt-48 bg-neutral-800 w-12 h-12 -ml-96">
+        <i class="fas fa-angle-right" style="font-size: 48px; color: white"></i>
+      </button>
+      <!-- author info -->
+      <div class="ml-4 h-screen p-3 bg-white shadow w-6/12">
+        <div class="flex justify-between mt-4">
+          <p class="ml-6 font-semibold text-lg text-zinc-600">Author</p>
+          <button><i class="fas fa-times" style="font-size: 36px"></i></button>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5"></div>
+        <div class="flex flex-row mt-4 text-base font-medium ml-4 space-x-4">
+          <img class="rounded-full w-14 h-14" src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+          <div class="mt-4  flex flex-row space-x-4">
+            <p>Panthut</p>
+            <p>Ketphan</p>
+          </div>
+        </div>
+        <!-- published date -->
+        <p class="ml-4 mt-4 font-semibold text-lg text-zinc-600">
+          Published
+        </p>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div class="flex flex-row mt-4  text-base font-medium">
+          <p class="text-xl" >xx/xx/22</p>
+          <div class="ml-4 flex flex-row">
+            <p class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" id="grade">Grade</p>
+            <p class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" id="subject">Subject</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="border-2 border-gray-200 text-gray-500 bg-white hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 "
+        >
+          Vote
+        </button>
+        <div>
+          <p class="font-semibold text-lg text-zinc-600 mt-4">Tools</p>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div class="flex flex-row mt-4 space-x-4 ml-4">
+            <img class="rounded-full w-14 h-14" src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+            <img class="rounded-full w-14 h-14" src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+            <img class="rounded-full w-14 h-14" src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+        </div>
+
+        <div>
+          <p class="font-semibold text-lg text-zinc-600 mt-4">Description</p>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div></div>
+        <div class="flex justify-center space-x-4 mt-4">
+          <button class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+            <div class="space-x-2">
+              <a href="">Comments<i class='far fa-comments'></i></a>
+            </div>
+          </button>
+          <button class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+            <a href="">Visit Website<i class='fas fa-server'></i></a>
+          </button>
+        </div>
+    </div>
+  </body>
 </html>
