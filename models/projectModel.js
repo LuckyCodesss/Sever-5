@@ -13,9 +13,9 @@ const projectSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-    img: {
+    img: [{
         type: String
-    },
+    }],
     vote: {
         type: Number,
         required: true
