@@ -96,9 +96,9 @@ app.get('/home/read',async (req,res) => {
 // new
 app.get("/project/:id",async(req,res)=>{
     console.log(req.params.id);
-    var data = await Project.findById(req.params.id, (err, project) => {
+    var data =  Project.findById(req.params.id, (err, project) => {
                 if (err) res.send(err);
-                res.render("read",{tiwme:project})
+                res.render("read",{tiwme:data})
             })
 })
 
