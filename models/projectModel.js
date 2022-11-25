@@ -18,8 +18,7 @@ const projectSchema = new mongoose.Schema({
     }],
     vote: {
         type: Number,
-        required: true
-    }
+    },
 })
 
 module.exports = mongoose.model('projects', projectSchema)

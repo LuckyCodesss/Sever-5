@@ -37,7 +37,7 @@ app.post('/project/post',async (req,res)=>{
     var newProject = new Project(req.body)
     newProject.save()
     .then(item => {
-        res.send("item saved to database")
+        res.send(newProject)
     })
     .catch(err => {
         res.status(400).send("unable to save to database")
@@ -215,6 +215,20 @@ app.delete('/community/delete/:communityId',async (req,res) => {
     })
     .catch(err => {
         res.status(400).send("unable to delete data in database")
+    })
+})
+
+
+
+//user Id
+app.post('/userId/post',async (req,res)=>{
+    var newUserId = new User(req.body)
+    newUserId.save()
+    .then(item => {
+        res.send(newUserId)
+    })
+    .catch(err => {
+        res.status(400).send("unable to save to database")
     })
 })
 
