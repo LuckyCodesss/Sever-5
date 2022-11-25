@@ -96,7 +96,11 @@ app.get('/home/read',async (req,res) => {
 // new
 app.get("/project/:id",async(req,res)=>{
     console.log(req.params.id);
+<<<<<<< HEAD
     var data =  Project.findById(req.params.id, (err, project) => {
+=======
+    var data = Project.findById(req.params.id, (err, project) => {
+>>>>>>> 6e34f6712f00f49447d32214d55e12981eb207bd
                 if (err) res.send(err);
                 res.render("read",{tiwme:data})
             })
