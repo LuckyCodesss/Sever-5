@@ -93,7 +93,14 @@ app.get('/home/read',async (req,res) => {
     var data = await Project.find({})
     res.render("read",{tiwme:data})
 })
-
+// new
+app.get("/project/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data = await Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("read",{tiwme:project})
+            })
+})
 
 
 //get single data 
