@@ -96,9 +96,9 @@ app.get('/communitypage',async (req,res) => {
 
 
 // new
-app.get("/project/:id",async(req,res)=>{
-    console.log(req.params.id);
-    var data =  Project.findById(req.params.id, (err, project) => {
+app.post("/project",async(req,res)=>{
+    console.log(req.body.id);
+    var data =  Project.findById(req.body.id, (err, project) => {
                 if (err) res.send(err);
                 res.render("read",{tiwme:data})
             })
@@ -236,7 +236,78 @@ app.post('/userId/post',async (req,res)=>{
 
 
 
+//filter
+app.get("/filter/grade10/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
 
+app.get("/filter/grade11/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/grade12/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/Project/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/Math/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/Social/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/History/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/Physics/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
+
+app.get("/filter/Biology/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
+                if (err) res.send(err);
+                res.render("index",{tiwme:data})
+            })
+})
 
 
 
