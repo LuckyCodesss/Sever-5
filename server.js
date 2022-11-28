@@ -108,6 +108,7 @@ app.get("/Project/:id",async(req,res)=>{
     var data =  Project.findById(req.params.id, (err, project) => {
                 if (err) res.send(err);
                 res.render("read",{tiwme:data})
+                
             })
 })
 
