@@ -334,7 +334,7 @@
                       <div
                         class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
                       >
-                      <form action="/project" method="post">
+                      <form action="<%= `/project/${tiwme[i]._id}` %>" method="get">
                         <input type="hidden" name="id" id="id" value="<%= tiwme[i]._id %>">
                         <button type="submit"><%= tiwme[i].projectName %></button>
                       </form>

@@ -96,13 +96,21 @@ app.get('/communitypage',async (req,res) => {
 
 
 // new
-app.post("/project",async(req,res)=>{
-    console.log(req.body.id);
-    var data =  Project.findById(req.body.id, (err, project) => {
+// app.post("/project",async(req,res)=>{
+//     console.log(req.body.id);
+//     const data =  Project.findById(req.body.id, (err, project) => {
+//                 if (err) res.send(err);
+//                 res.render("read",{tiwme:data})
+//             })
+// })
+app.get("/Project/:id",async(req,res)=>{
+    console.log(req.params.id);
+    var data =  Project.findById(req.params.id, (err, project) => {
                 if (err) res.send(err);
                 res.render("read",{tiwme:data})
             })
 })
+
 
 
 //get single data 
