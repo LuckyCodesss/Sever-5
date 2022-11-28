@@ -89,10 +89,12 @@ app.get('/communitypage',async (req,res) => {
     res.render("index",{project:data})
 })
 
-app.get('/home/read',async (req,res) => {
-    var data = await Project.find({})
-    res.render("read",{tiwme:data})
-})
+// app.get('/home/read',async (req,res) => {
+//     var data = await Project.find({})
+//     res.render("read",{tiwme:data})
+// })
+
+
 // new
 app.get("/project/:id",async(req,res)=>{
     console.log(req.params.id);
@@ -231,6 +233,10 @@ app.post('/userId/post',async (req,res)=>{
         res.status(400).send("unable to save to database")
     })
 })
+
+
+
+
 
 
 
