@@ -19,6 +19,9 @@ const projectSchema = new mongoose.Schema({
     vote: {
         type: Number,
     },
+    filter: [{
+        type: Number
+    }]
 })
 
 module.exports = mongoose.model('projects', projectSchema)
