@@ -103,11 +103,11 @@ app.get("/communitypage", async (req, res) => {
 // })
 app.get("/Project/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
+    console.log(project);
+    res.render("read", { tiwme: project });
   });
-  console.log(data);
-  res.render("read", { tiwme: data });
 });
 
 //get single data
