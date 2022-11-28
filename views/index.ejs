@@ -318,11 +318,14 @@
       <!-- Project -->
       <div class="flex flex-col mr-auto">
         <% for (var i =0; i <tiwme.length ; i++ ) { %>
-          <a href="home/">
-              <script>
-                const id = "<%=tiwme[i].id %>"
-                console.log(id)
-              </script>
+          <script>
+            for (let l = 0; l < tiwme.length; l++) {
+              const id = "<%=tiwme[i]._id %>"
+            }
+            console.log(typeof id)
+          </script>
+          <a href="project/"+id>
+             
               <div>
                 <div
                   class="mt-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
