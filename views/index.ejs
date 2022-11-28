@@ -318,14 +318,8 @@
       <!-- Project -->
       <div class="flex flex-col mr-auto">
         <% for (var i =0; i <tiwme.length ; i++ ) { %>
-          <script>
-            for (let l = 0; l < tiwme.length; l++) {
-              const id = "<%=tiwme[i]._id %>"
-            }
-            console.log(typeof id)
-          </script>
-          <a href="project/"+id>
-             
+             <form action="/project" method="post">
+              <input type="hidden" name="id" id="id" value="<%= tiwme[i]._id %>">
               <div>
                 <div
                   class="mt-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
@@ -341,7 +335,7 @@
                       <div
                         class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
                       >
-                        <%= tiwme[i].projectName %>
+                        <button type="submit"><%= tiwme[i].projectName %></button>
                       </div>
     
                       <p class="mt-2 text-slate-500">
@@ -368,7 +362,9 @@
                 </div>
               </div>
               <% } %>
-          </a>  
+             </form>
+              
+           
       </div>
            
           
