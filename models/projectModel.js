@@ -20,7 +20,7 @@ const projectSchema = new mongoose.Schema({
         type: Number
     },
     filter: [{
-        type: Number
+        type: Array
     }]
 })
 
