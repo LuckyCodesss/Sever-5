@@ -23,7 +23,7 @@ const projectSchema = new mongoose.Schema({
   },
   filter: [
     {
-      type: Number,
+      type: Array,
     },
   ],
 });
