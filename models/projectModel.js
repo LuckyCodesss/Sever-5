@@ -2,22 +2,22 @@ const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
     projectName: {
-        type: String,
+        type: String
     },
     firstName: {
-        type: String,
+        type: String
     },
     lastName: {
-        type: String,
+        type: String
     },
     description: {
-        type: String,
+        type: String
     },
     img: [{
         type: Array
     }],
     vote: {
-        type: Number,
+        type: Number
     },
     filter: [{
         type: Number
