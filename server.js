@@ -158,6 +158,8 @@ app.put("/community/update/:communityId", async (req, res) => {
     });
 });
 
+
+
 //delete data
 app.delete("/user/delete/:userId", async (req, res) => {
   User.deleteOne({ _id: req.params.userId })
@@ -199,6 +201,8 @@ app.delete("/community/delete/:communityId", async (req, res) => {
     });
 });
 
+
+
 //user Id
 app.post("/userId/post", async (req, res) => {
   var newUserId = new User(req.body);
@@ -211,6 +215,8 @@ app.post("/userId/post", async (req, res) => {
       res.status(400).send("unable to save to database");
     });
 });
+
+
 
 //filter
 app.get("/filter/grade10/:id", async (req, res) => {
