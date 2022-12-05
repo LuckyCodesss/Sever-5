@@ -1,34 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
-    />
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="flex justify-between">
-      <!-- paper page -->
 
-      <div class="order-first z-0">
-        <main>
-          <% for (var i=0; i < tiwme.img.lenght ; i++) { %>
-          <section class="w-full h-screen">
-            <img src="<%" ="tiwme.img[i]" % />
-          </section>
-          <% } %>
-        </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="flex justify-between  ">
+
+    <!-- paper page -->
+    <div id="controls-carousel" class="order-first" data-carousel="">
+      <div class="flex flex-row">
+        <!-- Carousel wrapper -->
+        <div class=" h-screen overflow-hidden  md:h-screen">
+          <!-- pages -->
+          <% for (var i=0; i < tiwme.img.length ; i++ ) { %>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src=<%=tiwme.img[i] %>
+              class="absolute block w-2/5 ml-6 " alt="...">
+            </div>
+            <% } %>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="  z-30  h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button type="button" class="  z-30  h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
       </div>
     </div>
-  </body>
+    <div class="order-last">
+      <!-- author info -->
+      <div class="ml-4 h-screen p-3 bg-white shadow w-full">
+        <div class="flex justify-between mt-4">
+          <p class="ml-6 font-semibold text-lg text-zinc-600">Author</p>
+          <button><i class="fas fa-times" style="font-size: 36px"></i></button>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5"></div>
+        <div class="flex flex-row mt-4 text-base font-medium ml-4 space-x-4">
+          <img class="rounded-full w-14 h-14" src=<%=tiwme.img %> />
+          <div class="mt-4  flex flex-row space-x-4">
+            <p>
+              <%= tiwme.firstName %>
+            </p>
+            <p>
+              <%= tiwme.lastName %>
+            </p>
+          </div>
+        </div>
+        <!-- published date -->
+        <p class="ml-4 mt-4 font-semibold text-lg text-zinc-600">
+          Published
+        </p>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div class="flex flex-row mt-4  text-base font-medium">
+          <p class="text-xl">xx/xx/22</p>
+          <div class="ml-4 flex flex-row">
+            <p class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              id="grade">Grade</p>
+            <p class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              id="subject">Subject</p>
+          </div>
+        </div>
+        <button type="button"
+          class="border-2 border-gray-200 text-gray-500 bg-white hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">
+          Vote
+        </button>
+        <div>
+          <p class="font-semibold text-lg text-zinc-600 mt-4">Tools</p>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div class="flex flex-row mt-4 space-x-4 ml-4">
+          <img class="rounded-full w-14 h-14"
+            src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+          <img class="rounded-full w-14 h-14"
+            src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+          <img class="rounded-full w-14 h-14"
+            src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg">
+        </div>
+
+        <div>
+          <p class="font-semibold text-lg text-zinc-600 mt-4">
+            <%= tiwme.description %>
+          </p>
+        </div>
+        <div class="bg-gray-200 w-full h-0.5 mt-2"></div>
+        <div></div>
+        <div class="flex justify-center space-x-4 mt-4">
+          <button
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+            <div class="space-x-2">
+              <a href="">Comments<i class='far fa-comments'></i></a>
+            </div>
+          </button>
+          <button
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+            <a href="">Visit Website<i class='fas fa-server'></i></a>
+          </button>
+        </div>
+      </div>
+
+    </div>
+</body>
+
 </html>
