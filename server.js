@@ -1,9 +1,11 @@
 //define varible
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/UserModel");
 const Project = require("./models/projectModel");
+const Filter = require("./models/filterModel");
 const Tool = require("./models/toolModel");
 const Community = require("./models/communityModel");
 const bodyParser = require("body-parser");
@@ -16,6 +18,7 @@ mongoose.connect(
 
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
@@ -72,25 +75,41 @@ app.post("/community/post", async (req, res) => {
 
 
 //get all data
-app.get("/userdata", async (req, res) => {
-  var data = await User.find({});
-  res.render("index", { project: data });
-});
+// app.get("/userdata", async (req, res) => {
+//   var data = await User.find({});
+//   res.render("index", { project: data });
+// });
 
 app.get("/home", async (req, res) => {
   var data = await Project.find({});
+  var filterData = await Filter.find({});
+  // var Grade11Data = await Grade11s.find({});
+  // var Grade12Data = await Grade12s.find({});
+  // var MathData = await Maths.find({});
+  // var SocialData = await Socials.find({});
+  // var HistoryData = await Historys.find({});
+  // var PhysicData = await Physics.find({});
+  // var BiologyData = await Biologys.find({});
   res.render("index", { tiwme: data });
+  res.render("index", { tiwme: filterData });
+  // res.render("index", { tiwme: Grade11Data });
+  // res.render("index", { tiwme: Grade12Data });
+  // res.render("index", { tiwme: MathData });
+  // res.render("index", { tiwme: SocialData });
+  // res.render("index", { tiwme: HistoryData });
+  // res.render("index", { tiwme: PhysicData });
+  // res.render("index", { tiwme: BiologyData });
 });
 
-app.get("/toolpage", async (req, res) => {
-  var data = await Tool.find({});
-  res.render("index", { project: data });
-});
+// app.get("/toolpage", async (req, res) => {
+//   var data = await Tool.find({});
+//   res.render("index", { project: data });
+// });
 
-app.get("/communitypage", async (req, res) => {
-  var data = await Community.find({});
-  res.render("index", { project: data });
-});
+// app.get("/communitypage", async (req, res) => {
+//   var data = await Community.find({});
+//   res.render("index", { project: data });
+// });
 
 
 
@@ -219,77 +238,79 @@ app.post("/userId/post", async (req, res) => {
 
 
 //filter
-app.get("/filter/grade10/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/grade10/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/grade11/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/grade11/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/grade12/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/grade12/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/Project/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/Project/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/Math/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/Math/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/Social/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/Social/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/History/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/History/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/Physics/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/Physics/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
 
-app.get("/filter/Biology/:id", async (req, res) => {
-  console.log(req.params.id);
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("index", { tiwme: project });
-  });
-});
+// app.get("/filter/Biology/:id", async (req, res) => {
+//   console.log(req.params.id);
+//   Project.findById(req.params.id, (err, project) => {
+//     if (err) res.send(err);
+//     res.render("index", { tiwme: project });
+//   });
+// });
+
+
 
 app.listen(8888);
 app.use((req, res) => {
