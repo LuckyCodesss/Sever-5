@@ -18,6 +18,8 @@ app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+
 //post data
 app.post("/user/post", async (req, res) => {
   var newUser = new User(req.body);
@@ -67,6 +69,8 @@ app.post("/community/post", async (req, res) => {
     });
 });
 
+
+
 //get all data
 app.get("/userdata", async (req, res) => {
   var data = await User.find({});
@@ -88,12 +92,9 @@ app.get("/communitypage", async (req, res) => {
   res.render("index", { project: data });
 });
 
-// app.get('/home/read',async (req,res) => {
-//     var data = await Project.find({})
-//     res.render("read",{tiwme:data})
-// })
 
-// new
+
+// GET single data
 // app.post("/project",async(req,res)=>{
 //     console.log(req.body.id);
 //     const data =  Project.findById(req.body.id, (err, project) => {
@@ -110,34 +111,7 @@ app.get("/Project/:id", async (req, res) => {
       });
 });
 
-//get single data
-// app.get('/user',async (req,res) => {
-//     var data = await User.findById(req.params.projectId, (err, project) => {
-//         if (err) res.send(err);
-//     })
-//     res.json(data);
-// })
 
-// app.get('/project',async (req,res) => {
-//     var data = await Project.findById(req.params.projectId, (err, project) => {
-//         if (err) res.send(err);
-//     })
-//     res.json(data);
-// })
-
-// app.get('/tool',async (req,res) => {
-//     var data = await Tool.findById(req.params.projectId, (err, project) => {
-//         if (err) res.send(err);
-//     })
-//     res.json(data);
-// })
-
-// app.get('/community',async (req,res) => {
-//     var data = await Community.findById(req.params.projectId, (err, project) => {
-//         if (err) res.send(err);
-//     })
-//     res.json(data);
-// })
 
 //update data
 app.put("/user/update/:userId", async (req, res) => {
@@ -184,6 +158,8 @@ app.put("/community/update/:communityId", async (req, res) => {
     });
 });
 
+
+
 //delete data
 app.delete("/user/delete/:userId", async (req, res) => {
   User.deleteOne({ _id: req.params.userId })
@@ -225,6 +201,8 @@ app.delete("/community/delete/:communityId", async (req, res) => {
     });
 });
 
+
+
 //user Id
 app.post("/userId/post", async (req, res) => {
   var newUserId = new User(req.body);
@@ -238,76 +216,78 @@ app.post("/userId/post", async (req, res) => {
     });
 });
 
+
+
 //filter
 app.get("/filter/grade10/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/grade11/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/grade12/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/Project/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/Math/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/Social/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/History/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/Physics/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
 app.get("/filter/Biology/:id", async (req, res) => {
   console.log(req.params.id);
-  var data = Project.findById(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) res.send(err);
-    res.render("index", { tiwme: data });
+    res.render("index", { tiwme: project });
   });
 });
 
