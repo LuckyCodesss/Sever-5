@@ -24,17 +24,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //post data
-app.post("/user/post", async (req, res) => {
-  var newUser = new User(req.body);
-  newUser
-    .save()
-    .then((item) => {
-      res.send("item saved to database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to save to database");
-    });
-});
+// app.post("/user/post", async (req, res) => {
+//   var newUser = new User(req.body);
+//   newUser
+//     .save()
+//     .then((item) => {
+//       res.send("item saved to database");
+//     })
+//     .catch((err) => {
+//       res.status(400).send("unable to save to database");
+//     });
+// });
 
 app.post("/project/post", async (req, res) => {
   var newProject = new Project(req.body);
@@ -48,29 +48,29 @@ app.post("/project/post", async (req, res) => {
     });
 });
 
-app.post("/tool/post", async (req, res) => {
-  var newTool = new Tool(req.body);
-  newTool
-    .save()
-    .then((item) => {
-      res.send("item saved to database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to save to database");
-    });
-});
+// app.post("/tool/post", async (req, res) => {
+//   var newTool = new Tool(req.body);
+//   newTool
+//     .save()
+//     .then((item) => {
+//       res.send("item saved to database");
+//     })
+//     .catch((err) => {
+//       res.status(400).send("unable to save to database");
+//     });
+// });
 
-app.post("/community/post", async (req, res) => {
-  var newCommunity = new Community(req.body);
-  newCommunity
-    .save()
-    .then((item) => {
-      res.send("item saved to database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to save to database");
-    });
-});
+// app.post("/community/post", async (req, res) => {
+//   var newCommunity = new Community(req.body);
+//   newCommunity
+//     .save()
+//     .then((item) => {
+//       res.send("item saved to database");
+//     })
+//     .catch((err) => {
+//       res.status(400).send("unable to save to database");
+//     });
+// });
 
 
 
@@ -82,23 +82,13 @@ app.post("/community/post", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   var data = await Project.find({});
-  var filterData = await Filter.find({});
-  // var Grade11Data = await Grade11s.find({});
-  // var Grade12Data = await Grade12s.find({});
-  // var MathData = await Maths.find({});
-  // var SocialData = await Socials.find({});
-  // var HistoryData = await Historys.find({});
-  // var PhysicData = await Physics.find({});
-  // var BiologyData = await Biologys.find({});
   res.render("index", { tiwme: data });
-  res.render("index", { tiwme: filterData });
-  // res.render("index", { tiwme: Grade11Data });
-  // res.render("index", { tiwme: Grade12Data });
-  // res.render("index", { tiwme: MathData });
-  // res.render("index", { tiwme: SocialData });
-  // res.render("index", { tiwme: HistoryData });
-  // res.render("index", { tiwme: PhysicData });
-  // res.render("index", { tiwme: BiologyData });
+
+  // Project.findById(req.params.id, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     console.log(filterdata);
+  //     res.render("index", { filter: filterdata });
+  // });
 });
 
 // app.get("/toolpage", async (req, res) => {
@@ -122,7 +112,6 @@ app.get("/home", async (req, res) => {
 //             })
 // })
 app.get("/Project/:id", async (req, res) => {
-    console.log(req.params.id);
     Project.findById(req.params.id, (err, project) => {
       if (err) res.send(err);
       console.log(project);
