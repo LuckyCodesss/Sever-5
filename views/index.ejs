@@ -1,375 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
-    />
-    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- right navbar -->
-    <div class="relative">
-      <div class="fixed right-0">
-        <div class="flex flex-row-reverse border-l-4 border-gray-300">
-          <div class="flex flex-col h-screen p-3 bg-white shadow w-96">
-            <!-- profile -->
-            <div class="flex flex-row space-x-4 mt-6 text-xl mr-6 font-semibold">
-              <p id="firstname">Panthut</p>
-              <p id="lastname">Ketphan</p>
-            </div>
-            <!-- line between prof and searchbar -->
-    
-            <!-- search bar -->
-            <div class="mt-4">
-              <form>
-                <div class="relative">
-                  <div
-                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <input
-                    type="search"
-                    id="default-search"
-                    class="block w-full p-4 pl-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-400 focus:border-gray-400"
-                    placeholder="search something"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    class="text-white absolute right-2.5 bottom-2.5 bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2"
-                  >
-                    Search
-                  </button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- right navbar -->
+  <div class="relative">
+    <div class="fixed right-0">
+      <div class="flex flex-row-reverse border-l-4 border-gray-300">
+        <div class="flex flex-col h-screen p-3 bg-white shadow w-96">
+          <!-- profile -->
+          <div class="flex flex-row space-x-4 mt-6 text-xl mr-6 font-semibold">
+            <p id="firstname">Panthut</p>
+            <p id="lastname">Ketphan</p>
+          </div>
+          <!-- line between prof and searchbar -->
+
+          <!-- search bar -->
+          <div class="mt-4">
+            <form>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
                 </div>
-              </form>
+                <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-400 focus:border-gray-400" placeholder="search something" required />
+                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- head -->
+          <div class="flex flex-col mt-4 text-lg font-medium">
+            <div class="mt-4">
+              <a href=""> Project </a>
             </div>
-            <!-- head -->
-            <div class="flex flex-col mt-4 text-lg font-medium">
-              <div class="mt-4">
-                <a href=""> Project </a>
-              </div>
-              <div class="mt-4">
-                <a href=""> Community </a>
-              </div>
-              <div class="mt-4">
-                <a href=""> Tools </a>
-              </div>
+            <div class="mt-4">
+              <a href=""> Community </a>
             </div>
-    
-            <!-- filter -->
-            <div class="mt-4 ml-4">
-              <button
-                id="dropdownHelperButton"
-                data-dropdown-toggle="dropdownHelper"
-                class="text-black bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
-                type="button"
-              >
-                Filter<svg
-                  class="ml-2 w-4 h-4"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </button>
-    
-              <!-- Dropdown menu -->
-              <div
-                id="dropdownHelper"
-                class="hidden z-10 w-60 bg-white rounded divide-y divide-gray-100 shadow"
-              >
-                <ul
-                  class="p-3 space-y-1 text-sm text-gray-700"
-                  aria-labelledby="dropdownHelperButton"
-                >
-                  <!-- grade/project -->
-                  <div class="flex flex-col">
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="grade10-checkbox"
-                            aria-describedby="checkbox-text-1"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="grade10-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Grade10</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="grade11-checkbox"
-                            aria-describedby="checkbox-text-2"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="grade11-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Grade11</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="grade12-checkbox"
-                            aria-describedby="checkbox-text-3"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="grade12-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Grade12</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="project-checkbox"
-                            aria-describedby="checkbox-text-4"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="project-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Project</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                  </div>
-                  <!-- Subject -->
-                  <div class="flex flex-col">
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="math-checkbox"
-                            aria-describedby="checkbox-text-5"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label for="math-checkbox" class="font-medium text-black">
-                            <div>Math</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="social-checkbox"
-                            aria-describedby="checkbox-text-6"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="sociall-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Social</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="history-checkbox"
-                            aria-describedby="checkbox-text-7"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="history-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>History</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="physics-checkbox"
-                            aria-describedby="checkbox-text-8"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="physics-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Physics</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="biology-checkbox"
-                            aria-describedby="checkbox-text-9"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div class="ml-2 text-sm">
-                          <label
-                            for="biology-checkbox"
-                            class="font-medium text-black"
-                          >
-                            <div>Biology</div>
-                          </label>
-                        </div>
-                      </div>
-                    </li>
-                  </div>
-                </ul>
-              </div>
+            <div class="mt-4">
+              <a href=""> Tools </a>
             </div>
           </div>
+
+          <!-- filter -->
+          <div class="mt-4 ml-4">
+            <button id="dropdownHelperButton" data-dropdown-toggle="dropdownHelper" class="text-black bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
+              Filter<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownHelper" class="hidden z-10 w-60 bg-white rounded divide-y divide-gray-100 shadow">
+              <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownHelperButton">
+                <!-- grade/project -->
+                <div class="flex flex-col">
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="grade10-checkbox" aria-describedby="checkbox-text-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="grade10-checkbox" class="font-medium text-black">
+                          <div>Grade10</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="grade11-checkbox" aria-describedby="checkbox-text-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="grade11-checkbox" class="font-medium text-black">
+                          <div>Grade11</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="grade12-checkbox" aria-describedby="checkbox-text-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="grade12-checkbox" class="font-medium text-black">
+                          <div>Grade12</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="project-checkbox" aria-describedby="checkbox-text-4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="project-checkbox" class="font-medium text-black">
+                          <div>Project</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+                <!-- Subject -->
+                <div class="flex flex-col">
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="math-checkbox" aria-describedby="checkbox-text-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="math-checkbox" class="font-medium text-black">
+                          <div>Math</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="social-checkbox" aria-describedby="checkbox-text-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="sociall-checkbox" class="font-medium text-black">
+                          <div>Social</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="history-checkbox" aria-describedby="checkbox-text-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="history-checkbox" class="font-medium text-black">
+                          <div>History</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="physics-checkbox" aria-describedby="checkbox-text-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="physics-checkbox" class="font-medium text-black">
+                          <div>Physics</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex p-2 rounded hover:bg-gray-100">
+                      <div class="flex items-center h-5">
+                        <input id="biology-checkbox" aria-describedby="checkbox-text-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                      </div>
+                      <div class="ml-2 text-sm">
+                        <label for="biology-checkbox" class="font-medium text-black">
+                          <div>Biology</div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- left to mid side -->
     <div class="flex flex-row">
-        <!-- website name -->
+      <!-- website name -->
       <div class="font-semibold text-4xl mr-auto ml-10 mt-4">
         <p>Tiwme</p>
       </div>
       <!-- Project -->
       <div class="flex flex-col mr-auto">
         <% for (var i =0; i <tiwme.length ; i++ ) { %>
-            
-              <div>
-                <div
-                  class="mt-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
-                >
-                  <div class="md:flex">
-                    <div class="md:shrink-0">
-                      <img
-                        class="h-48 w-full object-cover md:h-full md:w-48" 
-                        src= <%= tiwme[i].img %>
-                      />
-                    </div>
-                    <div class="p-8">
-                      <div
-                        class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"
-                      >
-                      <form action="<%= `/project/${tiwme[i]._id}` %>" method="get">
-                        <input type="hidden" name="id" id="id" value="<%= tiwme[i]._id %>">
-                        <button type="submit"><%= tiwme[i].projectName %></button>
-                      </form>
-                      </div>
-    
-                      <p class="mt-2 text-slate-500">
-                        <%= tiwme[i].description %>
-                      </p>
-                    </div>
-                    <!-- votebutton -->
-                    <div class="flex justify-end">
-                      <div class="flex flex-col mt-24 mr-2">
-                        <button
-                          type="button"
-                          class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                        >
-                          Vote
-                        </button>
-                        <div class="flex flex-row space-x-2 mt-16 text-stone-600">
-                          <p>by</p>
-                          <p id="firstname"><%= tiwme[i].firstName %></p>
-                          <p id="lastname"><%= tiwme[i].lastName %></p>
-                        </div>
-                      </div>
-                    </div>
+
+        <div>
+          <div class="mt-4 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+            <div class="md:flex">
+              <div class="md:shrink-0">
+                <img class="h-48 w-full object-cover md:h-full md:w-48" src=<%= tiwme[i].img %> />
+              </div>
+              <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                  <form action="<%= `/project/${tiwme[i]._id}` %>" method="get">
+                    <input type="hidden" name="id" id="id" value="<%= tiwme[i]._id %>">
+                    <button type="submit"><%= tiwme[i].projectName %></button>
+                  </form>
+                </div>
+
+                <p class="mt-2 text-slate-500">
+                  <%= tiwme[i].description %>
+                </p>
+              </div>
+              <!-- votebutton -->
+              <div class="flex justify-end">
+                <div class="flex flex-col mt-24 mr-2">
+                  <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    Vote
+                  </button>
+                  <div class="flex flex-row space-x-2 mt-16 text-stone-600">
+                    <p>by</p>
+                    <p id="firstname"><%= tiwme[i].firstName %></p>
+                    <p id="lastname"><%= tiwme[i].lastName %></p>
                   </div>
                 </div>
               </div>
-              <% } %>
-             
-              
-           
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+
+
       </div>
-           
-          
+
+
       <!-- pop up post -->
       <!-- <div >
         <button
@@ -402,8 +267,9 @@
         </div>
       </div> -->
     </div>
-    
-      
-    
-  </body>
+
+
+
+</body>
+
 </html>
