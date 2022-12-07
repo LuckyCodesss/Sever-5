@@ -136,13 +136,6 @@ app.get("/home", async (req, res) => {
 
 
 // GET single data
-// app.post("/project",async(req,res)=>{
-//     console.log(req.body.id);
-//     const data =  Project.findById(req.body.id, (err, project) => {
-//                 if (err) res.send(err);
-//                 res.render("read",{tiwme:data})
-//             })
-// })
 app.get("/Project/:id", async (req, res) => {
     Project.findById(req.params.id, (err, project) => {
       if (err) res.send(err);
