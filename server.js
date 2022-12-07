@@ -82,45 +82,45 @@ app.post("/project/post", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   var data = await Project.find({});
-
-  Project.find({filter:["Grade10"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Grade11"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Grade12"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Project"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Math"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Social"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["History"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Physics"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-  Project.find({filter:["Biology"]}, (err, filterdata) => {
-    if (err) res.send(err);
-      res.render("index", { filter: filterdata });
-  });
-
   res.render("index", { tiwme: data });
+
+  // Project.find({filter:["Grade10"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Grade11"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Grade12"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Project"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Math"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Social"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["History"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Physics"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+  // Project.find({filter:["Biology"]}, (err, filterdata) => {
+  //   if (err) res.send(err);
+  //     res.render("index", { filter: filterdata });
+  // });
+
 });
 
 // app.get("/toolpage", async (req, res) => {
@@ -139,7 +139,6 @@ app.get("/home", async (req, res) => {
 app.get("/Project/:id", async (req, res) => {
     Project.findById(req.params.id, (err, project) => {
       if (err) res.send(err);
-      console.log(project);
       res.render("read", { tiwme: project });
       });
 });
