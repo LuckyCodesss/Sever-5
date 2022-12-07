@@ -85,7 +85,6 @@ app.get("/home", async (req, res) => {
 
   Project.find({filter:["Grade10"]}, (err, filterdata) => {
     if (err) res.send(err);
-      console.log(filterdata);
       res.render("index", { filter: filterdata });
   });
   Project.find({filter:["Grade11"]}, (err, filterdata) => {
