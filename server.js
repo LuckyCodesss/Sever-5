@@ -96,6 +96,30 @@ app.get("/home", async (req, res) => {
     if (err) res.send(err);
       res.render("index", { filter: filterdata });
   });
+  Project.find({filter:["Project"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Math"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Social"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["History"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Physics"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Biology"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
 
   res.render("index", { tiwme: data });
 });
