@@ -12,19 +12,17 @@
   <title>Document</title>
 </head>
 
-<body class="bg-pink-100">
+<body class="bg-zinc-200">
   <div class="flex justify-between  ">
 
     <!-- paper page -->
-    <div class="">
+    <div class="-my-32">
       <main>
-        <div class="block mt-10">
+        <div class="block ">
           <% for (var i = 0; i <tiwme.img.length ; i++) { %>
-          <section class="h-screen w-2/5 block ml-24 mt-24 ">
+          <section class="h-screen w-2/5 block ml-24 my-40  ">
             <img class="z-0 " src=<%= tiwme.img[i] %>>
-            <div class="left-0">
-              <p>hello world</p>
-            </div>
+            <p class="font-semibold text-lg text-zinc-600"><%= i+1 %> / <%= tiwme.img.length %> </p>
           </section>
           <% } %>
         </div>
