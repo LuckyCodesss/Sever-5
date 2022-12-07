@@ -82,13 +82,22 @@ app.post("/project/post", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   var data = await Project.find({});
-  res.render("index", { tiwme: data });
 
-  // Project.findById(req.params.id, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     console.log(filterdata);
-  //     res.render("index", { filter: filterdata });
-  // });
+  Project.find({filter:["Grade10"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      console.log(filterdata);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Grade11"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+  Project.find({filter:["Grade12"]}, (err, filterdata) => {
+    if (err) res.send(err);
+      res.render("index", { filter: filterdata });
+  });
+
+  res.render("index", { tiwme: data });
 });
 
 // app.get("/toolpage", async (req, res) => {
