@@ -12,46 +12,31 @@
   <title>Document</title>
 </head>
 
-<body>
+<body class="bg-pink-100">
   <div class="flex justify-between  ">
 
     <!-- paper page -->
-    <div id="controls-carousel" class="order-first" data-carousel="">
-      <div class="flex flex-row">
-        <!-- Carousel wrapper -->
-        <div class=" h-screen overflow-hidden  md:h-screen">
-          <!-- pages -->
-          <% for (var i=0; i < tiwme.img.length ; i++ ) { %>
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src=<%=tiwme.img[i] %> class="absolute block w-2/5 ml-6 " alt="...">
-          </div>
+    <div class="">
+      <main>
+        <div class="block mt-10">
+          <% for (var i = 0; i <tiwme.img.length ; i++) { %>
+          <section class="h-screen w-2/5 block ml-24 mt-24 ">
+            <img class="z-0 " src=<%= tiwme.img[i] %>>
+            <div class="left-0">
+              <p>hello world</p>
+            </div>
+          </section>
           <% } %>
         </div>
-        <!-- Slider controls -->
-        <button type="button" class="  z-30  h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button type="button" class="  z-30  h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button>
-      </div>
+
+      </main>
     </div>
-    <div class="order-last">
+    <div class=" fixed right-0">
       <!-- author info -->
       <div class="ml-4 h-screen p-3 bg-white shadow w-full">
         <div class="flex justify-between mt-4">
           <p class="ml-6 font-semibold text-lg text-zinc-600">Author</p>
-          <button><i class="fas fa-times" style="font-size: 36px"></i></button>
+          <a href="http://localhost:8888/home"><button><i class="fas fa-times mr-10" style="font-size: 36px"></i></button></a>
         </div>
         <div class="bg-gray-200 w-full h-0.5"></div>
         <div class="flex flex-row mt-4 text-base font-medium ml-4 space-x-4">
@@ -65,7 +50,7 @@
             </p>
           </div>
         </div>
-        <!-- published date -->
+
         <p class="ml-4 mt-4 font-semibold text-lg text-zinc-600">
           Published
         </p>
