@@ -82,9 +82,7 @@ app.post("/project/post", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   var data = await Project.find({});
-  res.render("index", { tiwme: data });
-
-  // Project.find({filter:["Grade10"]}, (err, filterdata) => {
+  // var Grade10 = Project.find({filter:["Grade10"]}, (err, filterdata) => {
   //   if (err) res.send(err);
   //     res.render("index", { filter: filterdata });
   // });
@@ -121,6 +119,7 @@ app.get("/home", async (req, res) => {
   //     res.render("index", { filter: filterdata });
   // });
 
+  res.render("index", { tiwme: data });
 });
 
 // app.get("/toolpage", async (req, res) => {
