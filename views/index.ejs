@@ -26,7 +26,7 @@
 
           <!-- search bar -->
           <div class="mt-4">
-            <form>
+            <form id="userid">
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -60,126 +60,133 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
+            <form id="filter">
+              <!-- Dropdown menu -->
+              <div id="dropdownHelper" class="hidden z-10 w-60 bg-white rounded divide-y divide-gray-100 shadow">
+                <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownHelperButton">
+                  <!-- grade/project -->
+                  <div class="flex flex-col">
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="grade10-checkbox" aria-describedby="checkbox-text-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="grade10-checkbox" class="font-medium text-black">
+                            <div>Grade10</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="grade11-checkbox" aria-describedby="checkbox-text-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="grade11-checkbox" class="font-medium text-black">
+                            <div>Grade11</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="grade12-checkbox" aria-describedby="checkbox-text-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="grade12-checkbox" class="font-medium text-black">
+                            <div>Grade12</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="project-checkbox" aria-describedby="checkbox-text-4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="project-checkbox" class="font-medium text-black">
+                            <div>Project</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                  </div>
+                  <!-- Subject -->
+                  <div class="flex flex-col">
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="math-checkbox" aria-describedby="checkbox-text-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="math-checkbox" class="font-medium text-black">
+                            <div>Math</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="social-checkbox" aria-describedby="checkbox-text-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="sociall-checkbox" class="font-medium text-black">
+                            <div>Social</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="history-checkbox" aria-describedby="checkbox-text-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="history-checkbox" class="font-medium text-black">
+                            <div>History</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="physics-checkbox" aria-describedby="checkbox-text-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="physics-checkbox" class="font-medium text-black">
+                            <div>Physics</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div class="flex items-center h-5">
+                          <input id="biology-checkbox" aria-describedby="checkbox-text-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                        </div>
+                        <div class="ml-2 text-sm">
+                          <label for="biology-checkbox" class="font-medium text-black">
+                            <div>Biology</div>
+                          </label>
+                        </div>
+                      </div>
+                    </li>
 
-            <!-- Dropdown menu -->
-            <div id="dropdownHelper" class="hidden z-10 w-60 bg-white rounded divide-y divide-gray-100 shadow">
-              <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownHelperButton">
-                <!-- grade/project -->
-                <div class="flex flex-col">
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="grade10-checkbox" aria-describedby="checkbox-text-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                    <li>
+                      <div class="flex p-2 rounded hover:bg-gray-100">
+                        <div><button type="submit" class="items-center self-center">Submit</button></div>
                       </div>
-                      <div class="ml-2 text-sm">
-                        <label for="grade10-checkbox" class="font-medium text-black">
-                          <div>Grade10</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="grade11-checkbox" aria-describedby="checkbox-text-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="grade11-checkbox" class="font-medium text-black">
-                          <div>Grade11</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="grade12-checkbox" aria-describedby="checkbox-text-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="grade12-checkbox" class="font-medium text-black">
-                          <div>Grade12</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="project-checkbox" aria-describedby="checkbox-text-4" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="project-checkbox" class="font-medium text-black">
-                          <div>Project</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-                <!-- Subject -->
-                <div class="flex flex-col">
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="math-checkbox" aria-describedby="checkbox-text-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="math-checkbox" class="font-medium text-black">
-                          <div>Math</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="social-checkbox" aria-describedby="checkbox-text-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="sociall-checkbox" class="font-medium text-black">
-                          <div>Social</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="history-checkbox" aria-describedby="checkbox-text-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="history-checkbox" class="font-medium text-black">
-                          <div>History</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="physics-checkbox" aria-describedby="checkbox-text-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="physics-checkbox" class="font-medium text-black">
-                          <div>Physics</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="flex p-2 rounded hover:bg-gray-100">
-                      <div class="flex items-center h-5">
-                        <input id="biology-checkbox" aria-describedby="checkbox-text-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
-                      </div>
-                      <div class="ml-2 text-sm">
-                        <label for="biology-checkbox" class="font-medium text-black">
-                          <div>Biology</div>
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-              </ul>
-            </div>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </form>
           </div>
         </div>
       </div>
