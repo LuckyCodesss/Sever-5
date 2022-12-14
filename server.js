@@ -40,26 +40,26 @@ app.post("/project/post", async (req, res) => {
 });
 
 app.get("/home", async (req, res) => {
-  var getdata = Boolean(req.body.Grade10box)
+  var getdata = req.body.Grade10box
+  console.log(getdata)
   var data = await Project.find({});
-  var grade10 = await Project.find({filter:["Grade10"]});
-  var grade11 = await Project.find({filter:["Grade11"]});
-  var grade12 = await Project.find({filter:["Grade12"]});
-  var project = await Project.find({filter:["Project"]});
-  var math = await Project.find({filter:["Math"]});
-  var social = await Project.find({filter:["Social"]});
-  var history = await Project.find({filter:["History"]});
-  var physics = await Project.find({filter:["Physics"]});
-  var biology = await Project.find({filter:["Biology"]});
-  let Storage = [{}];
+  // var grade10 = await Project.find({filter:["Grade10"]});
+  // var grade11 = await Project.find({filter:["Grade11"]});
+  // var grade12 = await Project.find({filter:["Grade12"]});
+  // var project = await Project.find({filter:["Project"]});
+  // var math = await Project.find({filter:["Math"]});
+  // var social = await Project.find({filter:["Social"]});
+  // var history = await Project.find({filter:["History"]});
+  // var physics = await Project.find({filter:["Physics"]});
+  // var biology = await Project.find({filter:["Biology"]});
+  // let Storage = [{}];
 
-  if (getdata === true) {
-
-    res.render("index", { tiwme: Storage });
-  } else if (getdata === false) {
-    res.render("index", { tiwme: data });
-    console.log(getdata)
-  }
+  // if (getdata === true) {
+  //   res.render("index", { tiwme: Storage });
+  // } else if (getdata === false) {
+   
+  // }
+  res.render("index", { tiwme: data });
 });
 
 app.put("/project/update/:projectId", async (req, res) => {
