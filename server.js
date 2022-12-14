@@ -5,13 +5,11 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/UserModel");
 const Project = require("./models/projectModel");
-// const Filter = require("./models/filterModel");
 const Tool = require("./models/toolModel");
 const Community = require("./models/communityModel");
 const bodyParser = require("body-parser");
 const eventEmitter = require('events');
 const emitter = new eventEmitter.EventEmitter();
-// const filtername = {Grade10box, Grade11box, Grade12box, Projectbox}
 
 //database
 mongoose.connect(
@@ -40,10 +38,9 @@ app.post("/project/post", async (req, res) => {
 });
 
 app.get("/home", async (req, res) => {
-  var getdata = req.body.Grade10box
-  console.log(getdata)
+  var getdata = (req.body.Grade10box)
   var data = await Project.find({});
-  // var grade10 = await Project.find({filter:["Grade10"]});
+  var grade10 = await Project.find({filter:["Grade10"]});
   // var grade11 = await Project.find({filter:["Grade11"]});
   // var grade12 = await Project.find({filter:["Grade12"]});
   // var project = await Project.find({filter:["Project"]});
@@ -52,13 +49,13 @@ app.get("/home", async (req, res) => {
   // var history = await Project.find({filter:["History"]});
   // var physics = await Project.find({filter:["Physics"]});
   // var biology = await Project.find({filter:["Biology"]});
-  // let Storage = [{}];
+  let Storage = [{}];
+  
+  // if (getdata === false) {
 
-  // if (getdata === true) {
-  //   res.render("index", { tiwme: Storage });
-  // } else if (getdata === false) {
-   
   // }
+  console.log(getdata)
+  console.log(grade10)
   res.render("index", { tiwme: data });
 });
 
