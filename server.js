@@ -51,9 +51,9 @@ app.get("/home", async (req, res) => {
   // var biology = await Project.find({filter:["Biology"]});
   let Storage = [{}];
   
-  // if (getdata === false) {
-
-  // }
+  if (getdata === false) {
+    
+  }
   console.log(getdata)
   console.log(grade10)
   res.render("index", { tiwme: data });
