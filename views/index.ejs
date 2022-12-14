@@ -186,6 +186,22 @@
                   </div>
                 </ul>
               </div>
+              <script>
+                let selectfil = []
+                const id = ["grade10-checkbox", "grade11-checkbox", "grade12-checkbox", "project-checkbox", "math-checkbox", "social-checkbox", "history-checkbox", "physics-checkbox", "biology-checkbox"]
+                for (let i = 0; i < id.length; i++) {
+                  const checkbox = document.getElementById(id[i])
+                  checkbox.addEventListener('click', function() {
+                    if (checkbox.checked == true) {
+                      selectfil.push(id[i])
+                      console.log("if ;", selectfil)
+                    } else {
+                      selectfil = selectfil.filter(e => e !== id[i])
+                      console.log("else ;", selectfil)
+                    }
+                  })
+                }
+              </script>
             </form>
           </div>
         </div>
