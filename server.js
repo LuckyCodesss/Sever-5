@@ -5,13 +5,13 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/UserModel");
 const Project = require("./models/projectModel");
-const Filter = require("./models/filterModel");
+// const Filter = require("./models/filterModel");
 const Tool = require("./models/toolModel");
 const Community = require("./models/communityModel");
 const bodyParser = require("body-parser");
 const eventEmitter = require('events');
 const emitter = new eventEmitter.EventEmitter();
-// const index = require("./views/index.ejs");
+// const filtername = {Grade10box, Grade11box, Grade12box, Projectbox}
 
 //database
 mongoose.connect(
@@ -26,19 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
-//post data
-// app.post("/user/post", async (req, res) => {
-//   var newUser = new User(req.body);
-//   newUser
-//     .save()
-//     .then((item) => {
-//       res.send("item saved to database");
-//     })
-//     .catch((err) => {
-//       res.status(400).send("unable to save to database");
-//     });
-// });
-
+//Home page
 app.post("/project/post", async (req, res) => {
   var newProject = new Project(req.body);
   newProject
@@ -51,112 +39,27 @@ app.post("/project/post", async (req, res) => {
     });
 });
 
-// app.post("/tool/post", async (req, res) => {
-//   var newTool = new Tool(req.body);
-//   newTool
-//     .save()
-//     .then((item) => {
-//       res.send("item saved to database");
-//     })
-//     .catch((err) => {
-//       res.status(400).send("unable to save to database");
-//     });
-// });
-
-// app.post("/community/post", async (req, res) => {
-//   var newCommunity = new Community(req.body);
-//   newCommunity
-//     .save()
-//     .then((item) => {
-//       res.send("item saved to database");
-//     })
-//     .catch((err) => {
-//       res.status(400).send("unable to save to database");
-//     });
-// });
-
-
-
-//get all data
-// app.get("/userdata", async (req, res) => {
-//   var data = await User.find({});
-//   res.render("index", { project: data });
-// });
-
 app.get("/home", async (req, res) => {
+  var getdata = Boolean(req.body.Grade10box)
   var data = await Project.find({});
-  // var grade10Data = Project.find({filter:["Grade10"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var grade11Data = Project.find({filter:["Grade11"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var grade12Data = Project.find({filter:["Grade12"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var projectData = Project.find({filter:["Project"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var mathData = Project.find({filter:["Math"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var socialData = Project.find({filter:["Social"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var historyData = Project.find({filter:["History"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var physicsData = Project.find({filter:["Physics"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
-  // var biologyData = Project.find({filter:["Biology"]}, (err, filterdata) => {
-  //   if (err) res.send(err);
-  //     res.render("index", { filter: filterdata });
-  // });
+  var grade10 = await Project.find({filter:["Grade10"]});
+  var grade11 = await Project.find({filter:["Grade11"]});
+  var grade12 = await Project.find({filter:["Grade12"]});
+  var project = await Project.find({filter:["Project"]});
+  var math = await Project.find({filter:["Math"]});
+  var social = await Project.find({filter:["Social"]});
+  var history = await Project.find({filter:["History"]});
+  var physics = await Project.find({filter:["Physics"]});
+  var biology = await Project.find({filter:["Biology"]});
+  let Storage = [{}];
 
+  if (getdata === true) {
 
-  res.render("index", { tiwme: data });
-});
-
-// app.get("/toolpage", async (req, res) => {
-//   var data = await Tool.find({});
-//   res.render("index", { project: data });
-// });
-
-// app.get("/communitypage", async (req, res) => {
-//   var data = await Community.find({});
-//   res.render("index", { project: data });
-// });
-
-
-
-// GET single data
-app.get("/Project/:id", async (req, res) => {
-    Project.findById(req.params.id, (err, project) => {
-      if (err) res.send(err);
-      res.render("read", { tiwme: project });
-      });
-});
-
-
-
-//update data
-app.put("/user/update/:userId", async (req, res) => {
-  User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true })
-    .then((item) => {
-      res.send("data had been update to database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to update data to database");
-    });
+    res.render("index", { tiwme: Storage });
+  } else if (getdata === false) {
+    res.render("index", { tiwme: data });
+    console.log(getdata)
+  }
 });
 
 app.put("/project/update/:projectId", async (req, res) => {
@@ -171,14 +74,34 @@ app.put("/project/update/:projectId", async (req, res) => {
     });
 });
 
-app.put("/tool/update/:toolId", async (req, res) => {
-  Tool.findOneAndUpdate({ _id: req.params.toolId }, req.body, { new: true })
+app.delete("/project/delete/:projectId", async (req, res) => {
+  Project.deleteOne({ _id: req.params.projectId })
     .then((item) => {
-      res.send("data had been update to database");
+      res.send("data had been delete in database");
     })
     .catch((err) => {
-      res.status(400).send("unable to update data to database");
+      res.status(400).send("unable to delete data in database");
     });
+});
+
+
+
+//Community page
+app.post("/community/post", async (req, res) => {
+  var newCommunity = new Community(req.body);
+  newCommunity
+    .save()
+    .then((item) => {
+      res.send("item saved to database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to save to database");
+    });
+});
+
+app.get("/communitypage", async (req, res) => {
+  var data = await Community.find({});
+  res.render("index", { project: data });
 });
 
 app.put("/community/update/:communityId", async (req, res) => {
@@ -190,39 +113,6 @@ app.put("/community/update/:communityId", async (req, res) => {
     })
     .catch((err) => {
       res.status(400).send("unable to update data to database");
-    });
-});
-
-
-
-//delete data
-app.delete("/user/delete/:userId", async (req, res) => {
-  User.deleteOne({ _id: req.params.userId })
-    .then((item) => {
-      res.send("data had been delete in database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to delete data in database");
-    });
-});
-
-app.delete("/project/delete/:projectId", async (req, res) => {
-  Project.deleteOne({ _id: req.params.projectId })
-    .then((item) => {
-      res.send("data had been delete in database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to delete data in database");
-    });
-});
-
-app.delete("/tool/delete/:toolId", async (req, res) => {
-  Tool.deleteOne({ _id: req.params.toolId })
-    .then((item) => {
-      res.send("data had been delete in database");
-    })
-    .catch((err) => {
-      res.status(400).send("unable to delete data in database");
     });
 });
 
@@ -238,16 +128,91 @@ app.delete("/community/delete/:communityId", async (req, res) => {
 
 
 
-//user Id
-app.post("/userId/post", async (req, res) => {
-  var newUserId = new User(req.body);
-  newUserId
+//Tool page
+app.post("/tool/post", async (req, res) => {
+  var newTool = new Tool(req.body);
+  newTool
     .save()
     .then((item) => {
-      res.send(newUserId);
+      res.send("item saved to database");
     })
     .catch((err) => {
       res.status(400).send("unable to save to database");
+    });
+});
+
+app.get("/toolpage", async (req, res) => {
+  var data = await Tool.find({});
+  res.render("index", { project: data });
+});
+
+app.put("/tool/update/:toolId", async (req, res) => {
+  Tool.findOneAndUpdate({ _id: req.params.toolId }, req.body, { new: true })
+    .then((item) => {
+      res.send("data had been update to database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to update data to database");
+    });
+});
+
+app.delete("/tool/delete/:toolId", async (req, res) => {
+  Tool.deleteOne({ _id: req.params.toolId })
+    .then((item) => {
+      res.send("data had been delete in database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to delete data in database");
+    });
+});
+
+
+
+//user data
+app.post("/user/post", async (req, res) => {
+  var newUser = new User(req.body);
+  newUser
+    .save()
+    .then((item) => {
+      res.send("item saved to database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to save to database");
+    });
+});
+
+app.get("/userdata", async (req, res) => {
+  var data = await User.find({});
+  res.render("index", { project: data });
+});
+
+app.put("/user/update/:userId", async (req, res) => {
+  User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true })
+    .then((item) => {
+      res.send("data had been update to database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to update data to database");
+    });
+});
+
+app.delete("/user/delete/:userId", async (req, res) => {
+  User.deleteOne({ _id: req.params.userId })
+    .then((item) => {
+      res.send("data had been delete in database");
+    })
+    .catch((err) => {
+      res.status(400).send("unable to delete data in database");
+    });
+});
+
+
+
+//Read page
+app.get("/Project/:id", async (req, res) => {
+  Project.findById(req.params.id, (err, project) => {
+    if (err) res.send(err);
+    res.render("read", { tiwme: project });
     });
 });
 
