@@ -180,7 +180,7 @@
 
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div><button type="submit" class="items-center self-center">Submit</button></div>
+                        <div><button type="submit" class="items-center self-center " id="submit2">Submit</button></div>
                       </div>
                     </li>
                   </div>
@@ -201,6 +201,25 @@
                     }
                   })
                 }
+
+                async function saveData(selectfil) {
+                  let response = await fetch("http://localhost:8888/home", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(selectfil)
+                  })
+
+                  let filterData = await response.json();
+                }
+
+                const form = document.getElementById("submit2");
+                form.addEventListener("click", function() {
+                  saveData(selectfil)
+                  console.log(selectfil)
+                  console.log("may be it work")
+                })
               </script>
             </form>
           </div>
