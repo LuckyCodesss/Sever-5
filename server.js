@@ -17,11 +17,12 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.set("view engine", "ejs");
-app.use(bodyParser.json());
+////bodyparser
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({type: "application/*+json"}));
+app.set("view engine", "ejs")
 
 
 //Home page
@@ -58,6 +59,11 @@ app.get("/home", async (req, res) => {
   }
   
   res.render("index", { tiwme: data });
+});
+
+app.post("/home", async (req, res) => {
+  var getdata = req.body.selectfil
+  console.log(getdata) 
 });
 
 app.put("/project/update/:projectId", async (req, res) => {
