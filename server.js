@@ -52,6 +52,10 @@ app.get("/home", async (req, res) => {
   // var biology = await Project.find({filter:["Biology"]});
   var Storage = [{}];
 
+  const cursor = db.collection('projects').find({
+    tags: ['Grade10']
+  });
+
   console.log(getdata)
   if (getdata === false) {
     Storage.push(grade10)
