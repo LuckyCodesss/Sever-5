@@ -33,11 +33,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </div>
-              <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-400 focus:border-gray-400" placeholder="search something" required />
-              <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2">
+              <input type="text" id="searchbar" class="block w-full p-4 pl-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-400 focus:border-gray-400" placeholder="search something" required />
+              <button type="button" id="searchSubmit" class="text-white absolute right-2.5 bottom-2.5 bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2">
                 Search
               </button>
             </div>
+
 
           </div>
           <!-- head -->
@@ -69,10 +70,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="grade10-checkbox" name="Grade10box" aria-describedby="checkbox-text-1" type="checkbox" value="grade10" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Grade10" name="Grade10box" aria-describedby="checkbox-text-1" type="checkbox" value="grade10" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="grade10-checkbox" class="font-medium text-black">
+                          <label for="Grade10" class="font-medium text-black">
                             <div>Grade10</div>
                           </label>
                         </div>
@@ -81,10 +82,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="grade11-checkbox" name="Grade11box" aria-describedby="checkbox-text-2" type="checkbox" value="grade11" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Grade11" name="Grade11box" aria-describedby="checkbox-text-2" type="checkbox" value="grade11" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="grade11-checkbox" class="font-medium text-black">
+                          <label for="Grade11" class="font-medium text-black">
                             <div>Grade11</div>
                           </label>
                         </div>
@@ -93,10 +94,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="grade12-checkbox" name="Grade12box" aria-describedby="checkbox-text-3" type="checkbox" value="grade12" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2" />
+                          <input id="Grade12" name="Grade12box" aria-describedby="checkbox-text-3" type="checkbox" value="grade12" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="grade12-checkbox" class="font-medium text-black">
+                          <label for="Grade12" class="font-medium text-black">
                             <div>Grade12</div>
                           </label>
                         </div>
@@ -105,10 +106,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="project-checkbox" name="Projectbox" aria-describedby="checkbox-text-4" type="checkbox" value="project" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Project" name="Projectbox" aria-describedby="checkbox-text-4" type="checkbox" value="project" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="project-checkbox" class="font-medium text-black">
+                          <label for="Project" class="font-medium text-black">
                             <div>Project</div>
                           </label>
                         </div>
@@ -120,10 +121,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="math-checkbox" aria-describedby="checkbox-text-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Math" aria-describedby="checkbox-text-5" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="math-checkbox" class="font-medium text-black">
+                          <label for="Math" class="font-medium text-black">
                             <div>Math</div>
                           </label>
                         </div>
@@ -132,10 +133,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="social-checkbox" aria-describedby="checkbox-text-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Social" aria-describedby="checkbox-text-6" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="sociall-checkbox" class="font-medium text-black">
+                          <label for="Sociall" class="font-medium text-black">
                             <div>Social</div>
                           </label>
                         </div>
@@ -144,10 +145,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="history-checkbox" aria-describedby="checkbox-text-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="History" aria-describedby="checkbox-text-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="history-checkbox" class="font-medium text-black">
+                          <label for="History" class="font-medium text-black">
                             <div>History</div>
                           </label>
                         </div>
@@ -156,10 +157,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="physics-checkbox" aria-describedby="checkbox-text-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Physics" aria-describedby="checkbox-text-8" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="physics-checkbox" class="font-medium text-black">
+                          <label for="Physics" class="font-medium text-black">
                             <div>Physics</div>
                           </label>
                         </div>
@@ -168,10 +169,10 @@
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
                         <div class="flex items-center h-5">
-                          <input id="biology-checkbox" aria-describedby="checkbox-text-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
+                          <input id="Biology" aria-describedby="checkbox-text-9" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500" />
                         </div>
                         <div class="ml-2 text-sm">
-                          <label for="biology-checkbox" class="font-medium text-black">
+                          <label for="Biology" class="font-medium text-black">
                             <div>Biology</div>
                           </label>
                         </div>
@@ -188,7 +189,7 @@
               </div>
               <script>
                 let selectfil = []
-                const id = ["grade10-checkbox", "grade11-checkbox", "grade12-checkbox", "project-checkbox", "math-checkbox", "social-checkbox", "history-checkbox", "physics-checkbox", "biology-checkbox"]
+                const id = ["Grade10", "Grade11", "Grade12", "Project", "Math", "Social", "History", "Physics", "Biology"]
                 for (let i = 0; i < id.length; i++) {
                   const checkbox = document.getElementById(id[i])
                   checkbox.addEventListener('click', function() {
@@ -201,14 +202,13 @@
                     }
                   })
                 }
-
-                async function saveData(selectfil) {
+                async function saveData(data) {
                   let response = await fetch("http://localhost:8888/home", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(selectfil)
+                    body: JSON.stringify(data)
                   })
 
                   let filterData = await response.json();
@@ -219,6 +219,16 @@
                 form.addEventListener("click", function() {
                   saveData(selectfil)
                   console.log(selectfil)
+                })
+                let searchSubmit = document.getElementById("searchSubmit")
+
+                function searchData() {
+                  let searchbar = document.getElementById("searchbar")
+                }
+                searchSubmit.addEventListener('click', async function() {
+                  const searchresult = await searchData()
+                  saveData(searchbar)
+                  console.log(searchbar)
                 })
               </script>
             </form>
