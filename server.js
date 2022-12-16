@@ -66,7 +66,7 @@ app.get("/home", async (req, res) => {
 });
 
 app.post("/home", async (req, res) => {
-  var getdata = req.body.selectfil
+  var getdata = req.body
   console.log(getdata) 
 });
 
