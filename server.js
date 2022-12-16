@@ -46,7 +46,8 @@ app.get("/home", async (req, res) => {
 app.post("/home", async (req, res) => {
   var getdata = req.body
   var data = await Project.find({filter: {$all:getdata}})
-  console.log(data) 
+  console.log(data)
+  res.render("index", { tiwme: data });
 });
 
 app.put("/project/update/:projectId", async (req, res) => {
