@@ -38,7 +38,7 @@ app.post("/project/post", async (req, res) => {
 });
 
 app.get("/home", async (req, res) => {
-  var getdata = req.body.selectfil
+  var getdata = Boolean(req.body.selectfil)
   var data = await Project.find({});
   var grade10 = await Project.find({filter:["Grade10"]});
   // var grade11 = await Project.find({filter:["Grade11"]});
@@ -49,9 +49,14 @@ app.get("/home", async (req, res) => {
   // var history = await Project.find({filter:["History"]});
   // var physics = await Project.find({filter:["Physics"]});
   // var biology = await Project.find({filter:["Biology"]});
-  // let Storage = [{}];
-  
+  var Storage = [{}];
+
   console.log(getdata)
+  if (getdata === false) {
+    Storage.push(grade10)
+    console.log(Storage)
+  }
+  
   res.render("index", { tiwme: data });
 });
 
