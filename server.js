@@ -44,8 +44,9 @@ app.get("/home", async (req, res) => {
 });
 
 app.post("/home", async (req, res) => {
-  var getdata = req.body
-  var data = await Project.find({filter: {$all:getdata}})
+  var getdata = req.body.filter
+  var array = getdata.split(",");
+  var data = await Project.find({filter: {$all:array}})
   res.render("index", { tiwme: data });
 });
 

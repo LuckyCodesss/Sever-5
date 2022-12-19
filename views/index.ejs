@@ -61,7 +61,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <form action="/home" method="GET">
+            <form action="/home" method="POST">
               <!-- Dropdown menu -->
               <div id="dropdownHelper" class="hidden z-10 w-60 bg-white rounded divide-y divide-gray-100 shadow">
                 <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownHelperButton">
@@ -181,7 +181,10 @@
 
                     <li>
                       <div class="flex p-2 rounded hover:bg-gray-100">
-                        <div><button type="button" class="items-center self-center " id="submit2">Submit</button></div>
+                        <div>                                                 
+                          <button type="submit" class="items-center self-center " id="submit2">Submit</button>
+                          <input type="hidden" name="filter" id="filter" value="">                        
+                      </div>
                       </div>
                     </li>
                   </div>
@@ -190,36 +193,21 @@
               <script>
                 let selectfil = []
                 const id = ["Grade10", "Grade11", "Grade12", "Project", "Math", "Social", "History", "Physics", "Biology"]
+                const filBtn = document.getElementById("filter");
                 for (let i = 0; i < id.length; i++) {
                   const checkbox = document.getElementById(id[i])
                   checkbox.addEventListener('click', function() {
                     if (checkbox.checked == true) {
                       selectfil.push(id[i])
-                      console.log("if ;", selectfil)
+                      filBtn.value = selectfil
+                      console.log("filBtn ;", filBtn.value)
                     } else {
                       selectfil = selectfil.filter(e => e !== id[i])
-                      console.log("else ;", selectfil)
+                      filBtn.value = selectfil
+                      console.log("filBtn =", filBtn.value)
                     }
                   })
-                }
-                async function saveData(data) {
-                  let response = await fetch("http://localhost:8888/home", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                  })
-
-                  let filterData = await response.json();
-                }
-
-                const form = document.getElementById("submit2");
-                console.log(form)
-                form.addEventListener("click", function() {
-                  saveData(selectfil)
-                  console.log(selectfil)
-                })
+                }             
                 let searchSubmit = document.getElementById("searchSubmit")
 
                 function searchData() {
