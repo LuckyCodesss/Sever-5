@@ -43,8 +43,6 @@ app.get("/home", async (req, res) => {
   res.render("index", { tiwme: data });
 });
 
-
-
 app.post("/home", async (req, res) => {
   var getdata = req.body.filter
   var array = getdata.split(",");
@@ -207,11 +205,10 @@ app.get("/Project/:id", async (req, res) => {
 });
 
 app.get("/post", async (req, res) => {
-  Project.findById(req.params.id, (err, project) => {
-    if (err) res.send(err);
-    res.render("read", { tiwme: project });
-    });
+  var data = await Project.find({});
+  res.render("post", { tiwme: data });
 });
+
 
 
 app.listen(8888);

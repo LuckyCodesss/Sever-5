@@ -208,24 +208,7 @@
                     }
                   })
                 }
-                async function saveData(data) {
-                  let response = await fetch("http://localhost:8888/home", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                  })
-
-                  let filterData = await response.json();
-                }
-
-                const form = document.getElementById("submit2");
-                console.log(form)
-                form.addEventListener("click", function() {
-                  saveData(selectfil)
-                  console.log(selectfil)
-                })
+                
                 let searchSubmit = document.getElementById("searchSubmit")
 
                 function searchData() {
