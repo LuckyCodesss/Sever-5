@@ -46,10 +46,10 @@ app.get("/home", async (req, res) => {
 
 
 app.post("/home", async (req, res) => {
-  var getdata = req.body
-  console.log(getdata)
-  var data = await Project.find({filter: {$all:getdata}})
-  console.log(data) 
+  var getdata = req.body.filter
+  var array = getdata.split(",");
+  var data = await Project.find({filter: {$all:array}})
+  res.render("index", { tiwme: data });
 });
 
 app.put("/project/update/:projectId", async (req, res) => {
