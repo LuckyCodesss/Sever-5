@@ -210,8 +210,8 @@ app.get("/postProject", async (req, res) => {
 });
 
 app.get("/postProject/previewProject", async (req, res) => {
-  
-  res.render("previewProject");
+  var data = await Project.find({});
+  res.render("previewProject", { tiwme: data });
 });
 
 
