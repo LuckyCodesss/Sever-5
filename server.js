@@ -204,9 +204,14 @@ app.get("/Project/:id", async (req, res) => {
     });
 });
 
-app.get("/post", async (req, res) => {
+app.get("/postProject", async (req, res) => {
   var data = await Project.find({});
-  res.render("post", { tiwme: data });
+  res.render("postProject", { tiwme: data });
+});
+
+app.get("/postProject/previewProject", async (req, res) => {
+  
+  res.render("previewProject");
 });
 
 

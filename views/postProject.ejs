@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" method="POST">
+    <div class=" drop-shadow-lg rounded-lg border-gray-200 border-2 mx-auto my-auto w-1/5 ">
+      <ul role="list" class="p-6 divide-y divide-slate-200">
+        <li class="flex py-4 first:pt-0 last:pb-0">
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Head</p>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="projectNametype=" text" placeholder="Project Name">
+          </div>
+        </li>
+        <li class="flex py-4 first:pt-0 last:pb-0">
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Description</p>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" type="text" placeholder="Your purpose or what is this project?">
+          </div>
+        </li>
+        <li class="flex py-4 first:pt-0 last:pb-0">
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Link to website</p>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="link" type="text" placeholder="Link to visit">
+          </div>
+        </li>
+        <li class="flex py-4 first:pt-0 last:pb-0">
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-slate-900">Upload file</p>
+
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+          </div>
+        </li>
+        <li class="flex py-4 first:pt-0 last:pb-0">
+          <div class="ml-3 overflow-hidden">
+            <div class="flex flex-row gap-12">
+              <button><a href="http://localhost:8888/home">Cancel</a></button>
+              <button id="preview" type="submit">Preview</a></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </form>
+</body>
+
+</html>
