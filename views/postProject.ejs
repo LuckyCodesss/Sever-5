@@ -19,7 +19,7 @@
         <li class="flex py-4 first:pt-0 last:pb-0">
           <div class="ml-3 overflow-hidden">
             <p class="text-sm font-medium text-slate-900">Head</p>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="projectNametype=" text" placeholder="Project Name">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="projectNametype" text" placeholder="Project Name">
           </div>
         </li>
         <li class="flex py-4 first:pt-0 last:pb-0">
@@ -46,6 +46,13 @@
             <div class="flex flex-row gap-12">
               <button><a href="http://localhost:8888/home">Cancel</a></button>
               <button id="preview" type="submit">Preview</a></button>
+              <script>
+                function projectPreview() {
+                  let head = document.getElementById("projectName")
+                  let description = document.getElementById("description")
+                  let link = document.getElementById("link")
+                }
+              </script>
             </div>
           </div>
         </li>
