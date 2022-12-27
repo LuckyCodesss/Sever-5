@@ -43,13 +43,13 @@
           </div>
           <!-- head -->
           <div class="flex flex-col mt-4 text-lg font-medium">
-            <div class="mt-4">
+            <div class="mt-4 ml-6">
               <a href=""> Project </a>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 ml-6">
               <a href=""> Community </a>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 ml-6">
               <a href=""> Tools </a>
             </div>
           </div>
@@ -221,6 +221,26 @@
               </script>
             </form>
           </div>
+          <div class="">
+            <button id="dropdownRightButton" data-dropdown-toggle="dropdownRight" data-dropdown-placement="right" class="text-black bg-white hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">Post <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg></button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownRight" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+              <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownRightButton">
+                <li>
+                  <a href="/post" class="block py-2 px-4 hover:bg-gray-100  ">Project</a>
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-100  ">Community</a>
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 hover:bg-gray-100  ">Tools</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -231,8 +251,11 @@
         <a href="/home">
           <p>Tiwme</p>
         </a>
+
+
       </div>
       <!-- Project -->
+
       <div class="flex flex-col mr-auto">
         <% for (var i =0; i <tiwme.length ; i++ ) { %>
 
@@ -275,35 +298,18 @@
           </div>
         </div>
         <% } %>
-
-
-
       </div>
 
-      <di>
-        <a href=""></a>
-      </di>
+
 
 
       <!-- pop up post -->
-      <!-- <div >
-        <button
-          data-popover-target="popover-bottom"
-          data-popover-placement="bottom"
-          type="button"
-          class="mt-4 mr-14 text-black mb-3 bg-white border-2 border-gray-200 hover:bg-ring-gray-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"
-        >
+      <!-- <div>
+        <button data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" class="mt-4 mr-14 text-black mb-3 bg-white border-2 border-gray-200 hover:bg-ring-gray-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
           POST
         </button>
-        <div
-          data-popover
-          id="popover-bottom"
-          role="tooltip"
-          class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0"
-        >
-          <div
-            class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg"
-          >
+        <div data-popover id="popover-bottom" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
+          <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg">
             <h3 class="font-semibold text-gray-900">
               What you want to post today?
             </h3>
